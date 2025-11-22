@@ -82,7 +82,7 @@ These two datasets are merged on the `NOC` column to add a readable **Country** 
     ```python
    Athletes older than 30:
      age_filter = merged_df[merged_df["Age] > 30]
-    ```python
+  
    Athletes who won a medal:
      medal_winners = merged_df[merged_df["Medal"].notna()]
 
@@ -90,7 +90,7 @@ These two datasets are merged on the `NOC` column to add a readable **Country** 
     ```python
     Selected important columns:
      subset = merged_df[["Name", "Age", "Sex", "Sport", "Country"]]
-    ```python
+    
    Example slice (first 10 rows):
      slice_data = merged_df.iloc[0:10]
 
