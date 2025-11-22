@@ -58,16 +58,19 @@ These two datasets are merged on the `NOC` column to add a readable **Country** 
    noc = pd.read_csv("noc_regions.csv")
 
 2. **Merged datasets on NOC**
+   ```python
    merged_df = athletes.merge(noc, on="NOC", how="left")
    merged_df = merged_df.rename(columns={"region": "Country"})
 
 3. **Inspected Data**
+   ```python
    merged_df.head()
    merged_df.tail()
    merged_df.info()
    merged_df.dtypes
 
 4. **Computed summary statistics**
+   ```python
    merged_df.describe()                    # summary for numeric columns
    merged_df.mean(numeric_only=True)       # mean
    merged_df.median(numeric_only=True)     # median
@@ -76,20 +79,23 @@ These two datasets are merged on the `NOC` column to add a readable **Country** 
    merged_df.count()                       # non-null counts
 
 5. **Filtering operations**
+    ```python
    Athletes older than 30:
      age_filter = merged_df[merged_df["Age] > 30]
-
+    ```python
    Athletes who won a medal:
      medal_winners = merged_df[merged_df["Medal"].notna()]
 
 6. **Selecting columns & slicing subsets**
-   Selected important columns:
+    ```python
+    Selected important columns:
      subset = merged_df[["Name", "Age", "Sex", "Sport", "Country"]]
-
+    ```python
    Example slice (first 10 rows):
      slice_data = merged_df.iloc[0:10]
 
 7. **Saved filtered results to files**
+    ```python
    age_filter.to_csv("outputs/age_above_30.csv", index=False)
    medal_winners.to_csv("outputs/medal_winners.csv", index=False)
    subset.to_csv("outputs/subset_output.csv", index=False)
